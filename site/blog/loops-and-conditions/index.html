@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditions and Loops | Last Day Exam Help</title><meta name="description" content="How if-statements and loops control the flow of a program, with Python examples.">
+<link rel="canonical" href="https://lastdayexam.help/blog/loops-and-conditions/"><meta name="robots" content="noindex, follow"><meta property="og:title" content="Conditions and Loops | Last Day Exam Help"><meta property="og:description" content="How if-statements and loops control the flow of a program, with Python examples."><meta property="og:type" content="article"><meta property="og:url" content="https://lastdayexam.help/blog/loops-and-conditions/"><meta property="og:site_name" content="Last Day Exam Help">
+<meta name="theme-color" content="#1d4ed8">
+<link rel="alternate" type="application/rss+xml" title="Last Day Exam Help" href="/rss.xml">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Conditions and Loops", "description": "How if-statements and loops control the flow of a program, with Python examples.", "datePublished": "2026-10-21", "dateModified": "2026-10-21", "mainEntityOfPage": "https://lastdayexam.help/blog/loops-and-conditions/", "author": {"@type": "Organization", "name": "Last Day Exam Help", "url": "https://lastdayexam.help/"}, "publisher": {"@type": "Organization", "name": "Last Day Exam Help", "url": "https://lastdayexam.help/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lastdayexam.help/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://lastdayexam.help/blog/"}, {"@type": "ListItem", "position": 3, "name": "Conditions and Loops", "item": "https://lastdayexam.help/blog/loops-and-conditions/"}]}</script>
+<script>document.documentElement.className='js'</script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap head-row"><a class="brand" href="/">Last Day Exam Help</a>
+<form class="search" role="search" action="/search/" method="get"><label for="q" class="sr">Search articles, subjects and vocabulary</label>
+<input id="q" name="q" type="search" placeholder="Search terms, subjects, formulas" autocomplete="off"><button type="submit">Search</button></form>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button></div>
+<nav aria-label="Main" class="wrap"><ul class="nav" id="nav-list"><li><a href="/">Home</a></li><li><a href="/subjects/">Subjects</a></li><li><a href="/exam-preparation/">Exam Preparation</a></li><li><a href="/quick-revision/">Quick Revision</a></li><li><a href="/vocabulary/">Academic Vocabulary</a></li><li><a href="/practice/">Practice Questions</a></li><li><a href="/study-skills/">Study Skills</a></li><li><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header>
+<main id="main" class="wrap"><nav aria-label="Breadcrumb" class="crumbs"><ol><li><a href="/">Home</a></li><li><a href="/blog/">Blog</a></li><li aria-current="page">Conditions and Loops</li></ol></nav><article><h1>Conditions and Loops</h1><p class="meta">Supporting explainer · Computer Science · 1 min read</p><p class="lead">How if-statements and loops control the flow of a program, with Python examples.</p><nav class="toc" aria-label="On this page"><strong>On this page</strong><ul><li><a href="#conditions">Conditions</a></li><li><a href="#loops">Loops</a></li><li><a href="#avoiding-infinite-loops">Avoiding infinite loops</a></li><li><a href="#worked-example-sum-of-1-to-5">Worked example: sum of 1 to 5</a></li><li><a href="#common-mistakes">Common mistakes</a></li><li><a href="#quick-recap">Quick recap</a></li></ul></nav><p>Programs are not limited to running lines in order. Conditions and loops control which instructions run and how often.</p>
+<h2 id="conditions">Conditions</h2>
+<p>A condition lets the program choose.</p>
+<pre><code>score = 72
+if score &gt;= 70:
+    print(&quot;Pass&quot;)
+elif score &gt;= 50:
+    print(&quot;Borderline&quot;)
+else:
+    print(&quot;Fail&quot;)</code></pre>
+<p>This prints <code>Pass</code> because <code>72 &gt;= 70</code> is true. The first true branch runs; the others are skipped.</p>
+<p>Comparison operators: <code>==</code> (equal), <code>!=</code> (not equal), <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>.</p>
+<p>Logical operators: <code>and</code>, <code>or</code>, <code>not</code>.</p>
+<h2 id="loops">Loops</h2>
+<p>A loop repeats instructions.</p>
+<p><strong>For loop</strong> (a known number of repetitions):</p>
+<pre><code>for i in range(3):
+    print(i)</code></pre>
+<p>This prints 0, 1, 2. <code>range(3)</code> produces 0, 1 and 2.</p>
+<p><strong>While loop</strong> (repeat while a condition is true):</p>
+<pre><code>count = 3
+while count &gt; 0:
+    print(count)
+    count = count - 1</code></pre>
+<p>This prints 3, 2, 1.</p>
+<h2 id="avoiding-infinite-loops">Avoiding infinite loops</h2>
+<p>If the condition never becomes false, the loop never ends. In the example above, forgetting <code>count = count - 1</code> would make the loop run forever.</p>
+<h2 id="worked-example-sum-of-1-to-5">Worked example: sum of 1 to 5</h2>
+<pre><code>total = 0
+for n in range(1, 6):
+    total = total + n
+print(total)  # 15</code></pre>
+<p><code>range(1, 6)</code> gives 1, 2, 3, 4, 5. The sum is 15.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li>Off-by-one errors: <code>range(5)</code> stops at 4.</li><li>Forgetting the colon or indentation in Python.</li><li>Using <code>=</code> instead of <code>==</code> in a condition.</li></ul>
+<h2 id="quick-recap">Quick recap</h2>
+<p>Conditions choose a path. Loops repeat steps. Make sure each loop has a way to finish.</p></article><h2>Key vocabulary</h2><ul class="cards"><li><a href="/vocabulary/algorithm/"><strong>Algorithm</strong></a><span>A finite, ordered set of clear steps for solving a problem.</span></li><li><a href="/vocabulary/boolean/"><strong>Boolean</strong></a><span>A data type with two possible values, true or false.</span></li><li><a href="/vocabulary/iteration/"><strong>Iteration</strong></a><span>The repetition of a set of instructions.</span></li></ul><h2>Keep learning</h2><ul class="cards"><li><a href="/blog/what-is-an-algorithm/"><strong>What Is an Algorithm?</strong></a><span>Supporting explainer</span></li><li><a href="/blog/variables-and-data-types/"><strong>Variables and Data Types in Programming</strong></a><span>Supporting explainer</span></li></ul><p>More: <a href="/subjects/computer-science/">Computer Science hub</a> · <a href="/practice/computer-science/">Computer Science practice questions</a></p><aside class="about-box"><strong>About this article</strong><br>Published 2026-10-21. Last updated 2026-10-21. Written by the Last Day Exam Help editorial team. Status: awaiting independent review. This guide is general educational information; check your own exam board or teacher for requirements that apply to you. Found a mistake? <a href="/corrections/">Tell us</a>.</aside></main>
+<footer class="site-footer"><div class="wrap"><p><strong>Last Day Exam Help</strong><br>Understand more. Revise smarter. Make your study time count.</p>
+<p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/editorial-standards/">Editorial standards</a> ·
+<a href="/corrections/">Corrections</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> ·
+<a href="/accessibility/">Accessibility</a> · <a href="/rss.xml">RSS</a></p>
+<p class="small">&copy; 2026 Last Day Exam Help. Educational information only; it does not guarantee any exam result. Some content is drafted with AI assistance and edited by the editorial team; see <a href="/editorial-standards/">editorial standards</a>.</p></div></footer>
+<script src="/assets/site.js" defer></script></body></html>

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://lastdayexam.help/sitemap.xml
