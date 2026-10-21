@@ -706,11 +706,22 @@ def build_assets():
     write("assets/search-index.json", json.dumps(SEARCH, separators=(",", ":")))
 
 
+def build_ads_txt():
+    """Publish ads.txt (kept at the repo root) at https://lastdayexam.help/ads.txt"""
+    if not os.path.exists("ads.txt"):
+        return False
+    txt = open("ads.txt", encoding="utf-8").read().strip()
+    if not re.match(r"^[a-z0-9.-]+,\s*[A-Za-z0-9-]+,\s*(DIRECT|RESELLER)", txt, re.I | re.M):
+        err("ads.txt does not look like a valid ads.txt record")
+    write("ads.txt", txt + "\n")
+    return True
+
+
 def build_feeds():
     urls = "".join("<url><loc>%s%s</loc><lastmod>%s</lastmod></url>" % (SITE, u, PUBLISHED) for u in PAGES)
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">%s</urlset>' % urls)
     if NOINDEX:
-        robots = "User-agent: *\nDisallow: /\n"
+        robots = "User-agent: *\nAllow: /ads.txt\nDisallow: /\n"
     else:
         robots = "User-agent: *\nAllow: /\nDisallow: /search/\n"
     write("robots.txt", robots + "\nSitemap: %s/sitemap.xml\n" % SITE)
@@ -758,9 +769,11 @@ def main():
     build_search_and_404()
     build_assets()
     build_feeds()
+    ads = build_ads_txt()
     npages, nlinks = verify()
     print("Articles: %d | glossary terms: %d | practice questions: %d" % (len(ARTICLES), len(TERMS), len(PRACTICE)))
     print("HTML pages: %d | internal links checked: %d | sitemap URLs: %d" % (npages, nlinks, len(PAGES)))
+    print("ads.txt: %s" % ("published" if ads else "not found (skipped)"))
     print("Indexing: %s" % ("BLOCKED (set CONTACT_EMAIL to enable)" if NOINDEX else "allowed"))
     if ERRORS:
         print("\n%d PROBLEM(S):" % len(ERRORS))
